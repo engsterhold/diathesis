@@ -255,7 +255,6 @@ body {
   box-sizing: border-box;
   
   /* Allow box to grow and shrink, and ensure they are all equally sized */
-  //resize: horizontal;
   flex: 1 1 auto;
   position: relative;
 
@@ -51714,12 +51713,15 @@ document.addEventListener('mouseup', function(e) {
 });
 			}
 			dragger();
+			var handler = document.querySelector('.handler');
+			var wrapper = handler.closest('.row');
+			var boxA = wrapper.querySelector('.box');
+			boxA.style.width = "30%";
+			boxA.style.flexGrow = 0;
+
 const col = () => {
 $("nav >> li:has(ul)").on("click", function(event) { 
-	console.log("click", event, this, $(event.target).closest("li"));
-	console.log("UL", $(event.target).closest("li").children("ul"));
 	
-	//e.preventDefault();
 	
 	$(event.target).closest("li").children("ul").toggleClass("collapsed");
 	
